@@ -31,6 +31,10 @@ http {
     include /data/cloudflare.conf;
     {{- end }}
 
+    {{- if .options.customize.http_root }}
+    include /share/nginx_proxy_http*.conf;
+    {{- end }}
+	
     server {
         server_name _;
         listen 80 default_server;
